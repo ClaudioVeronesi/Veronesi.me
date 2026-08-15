@@ -1,3 +1,12 @@
+// ---------- E-Mail-Verschleierung (gegen Scraper-Bots) ----------
+// Adresse steht nirgends als Klartext im HTML — wird erst zur Laufzeit zusammengesetzt.
+document.querySelectorAll('[data-email-user]').forEach(el => {
+  const address = `${el.dataset.emailUser}@${el.dataset.emailDomain}`;
+  el.href = `mailto:${address}`;
+  if (el.dataset.emailShow === 'true') el.textContent = address;
+  el.removeAttribute('data-email-user');
+});
+
 // ---------- Nav: scrolled state + mobile toggle ----------
 const nav = document.querySelector('.nav');
 const navToggle = document.querySelector('.nav__toggle');
@@ -39,6 +48,52 @@ if (heroBg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       heroBg.style.transform = `scale(1.08) translateY(${y * 0.12}px)`;
     }
   }, { passive: true });
+}
+
+// ---------- Scroll progress bar ----------
+const progress = document.querySelector('.progress');
+if (progress) {
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    progress.style.width = pct + '%';
+  }, { passive: true });
+}
+
+// ---------- Count-up stats ----------
+const statNums = document.querySelectorAll('.stat__num[data-count]');
+const countIo = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = el.dataset.count;
+    const numeric = parseInt(target.replace(/\D/g, ''), 10);
+    if (isNaN(numeric)) { el.textContent = target; countIo.unobserve(el); return; }
+    const suffix = target.replace(/^[0-9]+/, '');
+    const duration = 1100;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = Math.floor(p * numeric) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    countIo.unobserve(el);
+  });
+}, { threshold: 0.6 });
+statNums.forEach(el => countIo.observe(el));
+
+// ---------- Tilt on hover (cards / image frames) ----------
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.matchMedia('(hover:hover)').matches) {
+  document.querySelectorAll('.tilt').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.transform = `perspective(700px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
 }
 
 // ---------- Gallery lightbox ----------

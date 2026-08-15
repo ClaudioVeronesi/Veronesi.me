@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="progress"></div>
 
 <nav class="nav">
   <a href="index.html" class="nav__brand">Veronesi<span>.</span></a>
@@ -38,24 +39,50 @@
         <span class="eyebrow">Die Route</span>
         <h2>Von Küste zu Küste</h2>
         <p>Sardinien ist zu vielseitig für nur einen Ort. Deshalb ziehen wir weiter: vorbei an Steilküsten und versteckten Buchten, durch das bergige Hinterland mit seinen alten Steindörfern, bis hinunter zu den Traumstränden im Süden. Dazwischen: gutes Essen, lange Abende und garantiert die eine oder andere spontane Planänderung.</p>
-        <p>Unten findet ihr das komplette Reiseprogramm mit allen Stationen, Terminen und Details — direkt eingebettet und immer aktuell.</p>
+        <p>Was uns an dieser Insel reizt, ist der Kontrast: schroffe Granitberge im Landesinneren, die sich innerhalb weniger Fahrminuten in türkisfarbene Buchten verwandeln. Dörfer, in denen mittags alles stillsteht, und Küstenstrassen, die genau dafür gemacht sind, spät dranzukommen — weil man alle zwei Kilometer anhalten will.</p>
+        <p>Unten findet ihr das komplette, verbindliche Reiseprogramm mit allen Stationen, Terminen und Details als PDF zum Durchblättern und Herunterladen.</p>
       </div>
-      <div class="img-frame img-frame--wide reveal reveal-delay-1">
+      <div class="img-frame img-frame--wide tilt reveal reveal-delay-1">
         <img src="pics/20250925_174155.jpg" alt="Küstenimpression Sardinien">
       </div>
     </div>
 
+    <span class="eyebrow reveal">Grobe Richtung</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:2rem;">Vier Landschaften, eine Route</h2>
+    <div class="stations" style="margin-bottom:4.5rem;">
+      <div class="station reveal">
+        <span class="station__no">01</span>
+        <h3>Cagliari & Süden</h3>
+        <p style="margin:0;font-size:.9rem;">Ankunft, erste Buchten, Altstadtgassen zum Ankommen.</p>
+      </div>
+      <div class="station reveal reveal-delay-1">
+        <span class="station__no">02</span>
+        <h3>Barbagia</h3>
+        <p style="margin:0;font-size:.9rem;">Bergiges Hinterland, alte Steindörfer, ruhige Strassen.</p>
+      </div>
+      <div class="station reveal reveal-delay-2">
+        <span class="station__no">03</span>
+        <h3>Costa Smeralda</h3>
+        <p style="margin:0;font-size:.9rem;">Türkiswasser, Granitfelsen, die Postkarten-Seite der Insel.</p>
+      </div>
+      <div class="station reveal reveal-delay-3">
+        <span class="station__no">04</span>
+        <h3>Alghero & Westen</h3>
+        <p style="margin:0;font-size:.9rem;">Katalanisches Flair, Sonnenuntergänge über dem Meer.</p>
+      </div>
+    </div>
+    <p class="reveal" style="font-size:.82rem;color:var(--sand-dim);margin-bottom:3rem;">Diese vier Etappen dienen der Orientierung — die verbindlichen Daten, Stationen und Details stehen im Reiseprogramm unten.</p>
+
     <span class="eyebrow reveal">Boarding</span>
     <h2 class="reveal reveal-delay-1" style="margin-bottom:2rem;">Reiseprogramm</h2>
 
-    <!-- Reiseprogramm: Google-Drive-Dokument, unabhängig von Hostpoint -->
+    <!-- Reiseprogramm: lokales PDF im Repo, keine Abhängigkeit mehr zu Drive oder Hostpoint -->
     <div class="ticket reveal">
       <div class="ticket__main">
-        <iframe src="https://drive.google.com/file/d/1fUZ-fdjBaDVhemK_2qbVqVL0cIrn8fQF/preview"
+        <iframe src="uploads/Sardinien_Reisebuch_2026_V7_ANONYM.pdf#toolbar=0&view=FitH"
                 title="Reiseprogramm Sardinien 2026"
                 width="100%" height="700"
                 style="border:0;border-radius:6px;background:var(--sand);"
-                allow="autoplay"
                 loading="lazy"></iframe>
       </div>
       <div class="ticket__stub">
@@ -65,11 +92,23 @@
         </div>
         <div>
           <span class="ticket__stop">Reiseprogramm</span><br>
-          <a href="https://drive.google.com/file/d/1fUZ-fdjBaDVhemK_2qbVqVL0cIrn8fQF/view" class="btn" style="margin-top:1rem;">Original öffnen ↗</a>
+          <a href="uploads/Sardinien_Reisebuch_2026_V7_ANONYM.pdf" class="btn" style="margin-top:1rem;" target="_blank" rel="noopener">PDF öffnen ↗</a>
         </div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div>
+        <span class="eyebrow">Vorfreude</span>
+        <h2 style="margin-top:.4em;font-size:1.7rem;">Bisherige Ausflüge in der Galerie ansehen.</h2>
+      </div>
+      <a href="galerie.html" class="btn btn--solid">Zur Galerie</a>
+    </div>
   </div>
 </section>
 
@@ -82,7 +121,7 @@
       <a href="galerie.html">Galerie</a>
       <a href="kontakt.html">Kontakt</a>
     </nav>
-    <a href="mailto:claudio.veronesi@outlook.com">claudio.veronesi@outlook.com</a>
+    <a href="#" rel="nofollow" data-email-user="claudio.veronesi" data-email-domain="outlook.com" data-email-show="true">E-Mail wird geladen…</a>
   </div>
 </footer>
 
