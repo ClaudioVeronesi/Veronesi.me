@@ -7,6 +7,17 @@ document.querySelectorAll('[data-email-user]').forEach(el => {
   el.removeAttribute('data-email-user');
 });
 
+// ---------- Back-to-top ----------
+const backToTop = document.querySelector('.back-to-top');
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
+}
+
 // ---------- Nav: scrolled state + mobile toggle ----------
 const nav = document.querySelector('.nav');
 const navToggle = document.querySelector('.nav__toggle');
