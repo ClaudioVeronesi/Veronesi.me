@@ -345,6 +345,66 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 /* ---------- Tilt (JS-gestützt) ---------- */
 .tilt{transition:transform .25s var(--ease);}
 
+/* ---------- Tagesplan-Akkordeon ---------- */
+.daycard{
+  border:1px solid rgba(244,237,224,.14);border-radius:10px;overflow:hidden;
+  margin-bottom:1rem;background:var(--ink-2);
+}
+.daycard summary{
+  list-style:none;cursor:pointer;padding:1.3rem 1.6rem;
+  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+  transition:background .3s;
+}
+.daycard summary::-webkit-details-marker{display:none;}
+.daycard summary:hover{background:var(--ink-3);}
+.daycard__no{
+  font-family:var(--f-label);font-size:.75rem;color:var(--gold);
+  border:1px solid var(--gold);border-radius:100px;padding:.3em .8em;flex-shrink:0;
+}
+.daycard__title{flex:1;min-width:200px;}
+.daycard__title h3{margin:0;font-size:1.15rem;}
+.daycard__route{font-family:var(--f-label);font-size:.72rem;color:var(--sand-dim);letter-spacing:.04em;}
+.daycard__chevron{font-family:var(--f-label);color:var(--gold);transition:transform .3s var(--ease);}
+.daycard[open] .daycard__chevron{transform:rotate(45deg);}
+.daycard__body{padding:0 1.6rem 1.8rem;}
+
+.timeline{list-style:none;margin:0 0 1.4rem;padding:0;border-left:1px solid rgba(244,237,224,.15);}
+.timeline li{position:relative;padding:0 0 1.1rem 1.4rem;}
+.timeline li::before{content:'';position:absolute;left:-4.5px;top:.4em;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.timeline time{font-family:var(--f-label);font-size:.72rem;color:var(--gold);display:block;margin-bottom:.15em;letter-spacing:.05em;}
+.timeline p{margin:0;font-size:.92rem;color:var(--sand);opacity:.9;}
+
+.stay-box{
+  display:inline-flex;flex-direction:column;gap:.15em;
+  background:var(--ink-3);border-radius:8px;padding:.9rem 1.2rem;margin-bottom:1.2rem;
+  font-size:.85rem;
+}
+.stay-box b{color:var(--sand);}
+.stay-box span{font-family:var(--f-label);font-size:.65rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;}
+
+.tip{border-radius:8px;padding:.9rem 1.1rem;font-size:.85rem;margin-bottom:.8rem;border-left:3px solid var(--teal);background:rgba(89,179,173,.08);}
+.tip.warn{border-color:var(--coral);background:rgba(255,122,92,.08);}
+.tip b{color:var(--sand);}
+
+/* ---------- Praktisches ---------- */
+.practical-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+@media(max-width:700px){.practical-grid{grid-template-columns:1fr;}}
+.practical{border:1px solid rgba(244,237,224,.12);border-radius:8px;padding:1.3rem 1.4rem;background:var(--ink-2);}
+.practical h3{font-size:1rem;margin-bottom:.5em;color:var(--gold);font-family:var(--f-label);letter-spacing:.03em;text-transform:uppercase;font-weight:400;}
+.practical p{font-size:.88rem;margin:0;}
+
+.rules-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+@media(max-width:900px){.rules-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.rules-grid{grid-template-columns:1fr;}}
+.rule{text-align:center;padding:1.4rem 1rem;border:1px solid rgba(244,237,224,.12);border-radius:8px;background:var(--ink-2);}
+.rule__no{font-family:var(--f-display);font-size:1.8rem;color:var(--gold);display:block;margin-bottom:.3em;}
+.rule p{font-size:.82rem;margin:0;}
+
+.contact-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.contact-table th{text-align:left;font-family:var(--f-label);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--sand-dim);padding:.7em 1em;border-bottom:1px solid rgba(244,237,224,.15);}
+.contact-table td{padding:.9em 1em;border-bottom:1px solid rgba(244,237,224,.08);vertical-align:top;}
+.contact-table tr:hover td{background:rgba(244,237,224,.03);}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;transition:none;}
