@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt — Veronesi</title>
+<meta name="description" content="Nachricht schreiben — wir freuen uns über deine Zeilen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav__brand">Veronesi<span>.</span></a>
+  <button class="nav__toggle" aria-label="Menü öffnen">☰</button>
+  <ul class="nav__links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sardinien.html">Sardinien 2026</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="kontakt.html" class="active">Kontakt</a></li>
+  </ul>
+</nav>
+
+<header class="hero hero--small">
+  <div class="hero__bg" style="background-image:url('https://veronesi.me/.cm4all/uproc.php/0/Basic/.IMG-20230805-WA0002.jpg/picture-200?_=19ac11481d0');"></div>
+  <div class="hero__scrim"></div>
+  <div class="wrap hero__content reveal in">
+    <span class="eyebrow">In Verbindung bleiben</span>
+    <h1>Kontakt</h1>
+    <p>Wir freuen uns über deine Nachricht — egal ob Frage, Feedback oder einfach ein „hallo".</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap grid-2" style="align-items:flex-start;">
+    <div class="reveal">
+      <span class="eyebrow">Direkt schreiben</span>
+      <h2>Ein paar Zeilen genügen</h2>
+      <p>Das Formular geht direkt in unser Postfach — keine Umwege, keine Wartezeit. Alternativ erreichst du uns auch klassisch per E-Mail.</p>
+      <p><a href="mailto:claudio.veronesi@outlook.com" class="btn">claudio.veronesi@outlook.com</a></p>
+    </div>
+
+    <!--
+      HINWEIS FÜR CLAUDIO:
+      Formular läuft kostenlos über formsubmit.co — kein Server, kein Konto nötig.
+      Bei der ALLERERSTEN Einsendung schickt formsubmit.co dir eine Bestätigungs-Mail,
+      die du einmalig anklicken musst — danach landen alle Nachrichten direkt im Postfach.
+      _subject / _template steuern nur die Optik der eingehenden Mail.
+    -->
+    <form class="reveal reveal-delay-1"
+          action="https://formsubmit.co/claudio.veronesi@outlook.com"
+          method="POST">
+      <input type="hidden" name="_subject" value="Neue Nachricht über veronesi.me">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="vorname">Vorname *</label>
+          <input id="vorname" name="Vorname" type="text" required>
+        </div>
+        <div class="field">
+          <label for="nachname">Nachname *</label>
+          <input id="nachname" name="Nachname" type="text" required>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="email">E-Mail *</label>
+          <input id="email" name="Email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="telefon">Telefon</label>
+          <input id="telefon" name="Telefon" type="tel">
+        </div>
+      </div>
+      <div class="field">
+        <label for="nachricht">Nachricht *</label>
+        <textarea id="nachricht" name="Nachricht" rows="5" required></textarea>
+      </div>
+      <label class="checkline">
+        <input type="checkbox" required>
+        <span>Ich erkläre mich mit der Verarbeitung der eingegebenen Daten einverstanden. *</span>
+      </label>
+      <button type="submit" class="btn btn--solid">Nachricht senden</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer__row">
+    <span>Veronesi.me — Private Seite</span>
+    <nav style="display:flex;gap:1.6rem;">
+      <a href="index.html">Home</a>
+      <a href="sardinien.html">Sardinien 2026</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <a href="mailto:claudio.veronesi@outlook.com">claudio.veronesi@outlook.com</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
