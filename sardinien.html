@@ -49,13 +49,34 @@
 
     <span class="eyebrow reveal">Route im Überblick</span>
     <h2 class="reveal reveal-delay-1" style="margin-bottom:2rem;">9 Tage, sechs Stationen</h2>
-    <div class="stations" style="grid-template-columns:repeat(6,1fr);margin-bottom:1rem;">
-      <div class="station reveal"><span class="station__no">Tag 1–2</span><h3 style="font-size:1rem;">Porto Cervo</h3></div>
-      <div class="station reveal reveal-delay-1"><span class="station__no">Tag 3–4</span><h3 style="font-size:1rem;">Alghero</h3></div>
-      <div class="station reveal reveal-delay-2"><span class="station__no">Tag 5</span><h3 style="font-size:1rem;">Aritzo</h3></div>
-      <div class="station reveal reveal-delay-3"><span class="station__no">Tag 6</span><h3 style="font-size:1rem;">Arbatax</h3></div>
-      <div class="station reveal"><span class="station__no">Tag 7–9</span><h3 style="font-size:1rem;">Castiadas</h3></div>
-      <div class="station reveal reveal-delay-1"><span class="station__no">Tag 9</span><h3 style="font-size:1rem;">Cagliari</h3></div>
+    <div class="route-graphic reveal">
+      <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 100 30 L 300 30 L 500 30 L 700 30 L 900 30 L 1100 30" fill="none" stroke="url(#routeGrad)" stroke-width="2" stroke-dasharray="1 10" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1f4753"/>
+            <stop offset="20%" stop-color="#59b3ad"/>
+            <stop offset="40%" stop-color="#7fa06f"/>
+            <stop offset="60%" stop-color="#ff7a5c"/>
+            <stop offset="80%" stop-color="#5b93b8"/>
+            <stop offset="100%" stop-color="#e7a64b"/>
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="30" r="5" fill="#1f4753" stroke="#f4ede0" stroke-width="1.5"/>
+        <circle cx="300" cy="30" r="5" fill="#59b3ad" stroke="#f4ede0" stroke-width="1.5"/>
+        <circle cx="500" cy="30" r="5" fill="#7fa06f" stroke="#f4ede0" stroke-width="1.5"/>
+        <circle cx="700" cy="30" r="5" fill="#ff7a5c" stroke="#f4ede0" stroke-width="1.5"/>
+        <circle cx="900" cy="30" r="5" fill="#5b93b8" stroke="#f4ede0" stroke-width="1.5"/>
+        <circle cx="1100" cy="30" r="5" fill="#e7a64b" stroke="#f4ede0" stroke-width="1.5"/>
+      </svg>
+      <div class="stations" style="grid-template-columns:repeat(6,1fr);">
+        <div class="station" style="border-top:3px solid var(--ink-3);"><span class="station__no">Tag 1–2</span><h3 style="font-size:1rem;">Porto Cervo</h3></div>
+        <div class="station" style="border-top:3px solid var(--teal);"><span class="station__no">Tag 3–4</span><h3 style="font-size:1rem;">Alghero</h3></div>
+        <div class="station" style="border-top:3px solid var(--sage);"><span class="station__no">Tag 5</span><h3 style="font-size:1rem;">Aritzo</h3></div>
+        <div class="station" style="border-top:3px solid var(--coral);"><span class="station__no">Tag 6</span><h3 style="font-size:1rem;">Arbatax</h3></div>
+        <div class="station" style="border-top:3px solid var(--sky);"><span class="station__no">Tag 7–9</span><h3 style="font-size:1rem;">Castiadas</h3></div>
+        <div class="station" style="border-top:3px solid var(--gold);"><span class="station__no">Tag 9</span><h3 style="font-size:1rem;">Cagliari</h3></div>
+      </div>
     </div>
     <p class="reveal" style="font-size:.82rem;color:var(--sand-dim);margin-bottom:3.5rem;">Von der Costa Smeralda über die Korallenküste und das bergige Hinterland bis zu den Traumstränden im Südosten.</p>
 
@@ -63,9 +84,9 @@
     <h2 class="reveal reveal-delay-1" style="margin-bottom:.6rem;">Reiseprogramm</h2>
     <p class="reveal" style="max-width:36em;margin-bottom:2rem;">Alle neun Tage zum Aufklappen — mit Zeiten, Unterkünften und den wichtigsten Tipps direkt aus unserem Reisedossier.</p>
 
-    <details class="daycard reveal" open>
+    <details class="daycard reveal" style="--accent:var(--ink-3);" open>
       <summary>
-        <span class="daycard__no">Tag 1 · Di</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M2 12l19-8-6 19-3-7-7-3z"/><path d="M11 13l3 7"/></svg></span><span class="daycard__no">Tag 1 · Di</span>
         <div class="daycard__title"><h3>Anreise & Ankommen</h3><span class="daycard__route">Zürich → Olbia → Porto Cervo</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -82,9 +103,9 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <details class="daycard reveal" style="--accent:var(--teal);">
       <summary>
-        <span class="daycard__no">Tag 2 · Mi</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span><span class="daycard__no">Tag 2 · Mi</span>
         <div class="daycard__title"><h3>Das Herz der Costa Smeralda</h3><span class="daycard__route">Porto Cervo → San Pantaleo → Capo Ferro → Pevero</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -102,9 +123,9 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <details class="daycard reveal" style="--accent:var(--teal);">
       <summary>
-        <span class="daycard__no">Tag 3 · Do</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M9 3L4 21M15 3l5 18M11 8h2M10 13h4M9 18h6"/></svg></span><span class="daycard__no">Tag 3 · Do</span>
         <div class="daycard__title"><h3>Von der Ostküste zur Korallenküste</h3><span class="daycard__route">Porto Cervo → Palau → Arzachena → Castelsardo → Alghero</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -123,9 +144,15 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <div class="banner reveal" style="min-height:34vh;border-radius:10px;margin:2rem 0;background-image:url('pics/20250925_174155.jpg');">
+      <div class="wrap" style="padding:0 2rem;">
+        <p style="margin:0;font-family:var(--f-display);font-style:italic;font-size:1.3rem;max-width:20em;">Küstenstrassen, die genau dafür gemacht sind, spät dranzukommen.</p>
+      </div>
+    </div>
+
+    <details class="daycard reveal" style="--accent:var(--sky);">
       <summary>
-        <span class="daycard__no">Tag 4 · Fr</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M3 15l1.5 3a2 2 0 0 0 2 1.2h11a2 2 0 0 0 2-1.2L21 15H3z"/><path d="M6 15l1-7h10l1 7M12 8V3M12 3l3 2"/></svg></span><span class="daycard__no">Tag 4 · Fr</span>
         <div class="daycard__title"><h3>Die Schätze der Korallenküste</h3><span class="daycard__route">Alghero → Grotta di Nettuno → Maria Pia</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -141,9 +168,9 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <details class="daycard reveal" style="--accent:var(--sage);">
       <summary>
-        <span class="daycard__no">Tag 5 · Sa</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M3 19l6-11 4 6 2-3 6 8H3z"/></svg></span><span class="daycard__no">Tag 5 · Sa</span>
         <div class="daycard__title"><h3>Über die Bosa-Strasse ins Bergland</h3><span class="daycard__route">Alghero → Bosa → Aritzo</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -160,9 +187,9 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <details class="daycard reveal" style="--accent:var(--coral);">
       <summary>
-        <span class="daycard__no">Tag 6 · So</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M4 19l3-9 3 4 2-5 3 6 3-3 2 7H4z"/></svg></span><span class="daycard__no">Tag 6 · So</span>
         <div class="daycard__title"><h3>Transmontana & die roten Felsen</h3><span class="daycard__route">Aritzo → Transmontana → Arbatax</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -179,9 +206,15 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <div class="banner reveal" style="min-height:34vh;border-radius:10px;margin:2rem 0;background-image:url('pics/20250807_181822.jpg');">
+      <div class="wrap" style="padding:0 2rem;">
+        <p style="margin:0;font-family:var(--f-display);font-style:italic;font-size:1.3rem;max-width:20em;">Ab hier zählt nur noch Strand, Pool und der Blick aufs Meer.</p>
+      </div>
+    </div>
+
+    <details class="daycard reveal" style="--accent:var(--sky);">
       <summary>
-        <span class="daycard__no">Tag 7 · Mo</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M12 3v3M4 20l16-6M9 12a5 5 0 0 1 8 4"/><path d="M2 20h20"/></svg></span><span class="daycard__no">Tag 7 · Mo</span>
         <div class="daycard__title"><h3>Die Ostküste hinab zu den Traumstränden</h3><span class="daycard__route">Arbatax → Costa Rei / Castiadas</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -196,9 +229,9 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <details class="daycard reveal" style="--accent:var(--plum);">
       <summary>
-        <span class="daycard__no">Tag 8 · Di</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M12 3c2 1 2 4 0 6-2-2-2-5 0-6z"/><path d="M12 9v9M9 21h6M8 15l4-2 4 2"/></svg></span><span class="daycard__no">Tag 8 · Di</span>
         <div class="daycard__title"><h3>Capo Ferrato, Porto Giunco & Villasimius</h3><span class="daycard__route">Castiadas → Capo Ferrato → Villasimius</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -213,9 +246,9 @@
       </div>
     </details>
 
-    <details class="daycard reveal">
+    <details class="daycard reveal" style="--accent:var(--gold);">
       <summary>
-        <span class="daycard__no">Tag 9 · Mi</span>
+        <span class="day-icon"><svg viewBox="0 0 24 24"><path d="M2 12l19-8-6 19-3-7-7-3z"/><path d="M11 13l3 7"/></svg></span><span class="daycard__no">Tag 9 · Mi</span>
         <div class="daycard__title"><h3>Heimreise nach Zürich</h3><span class="daycard__route">Castiadas → Cagliari → Zürich</span></div>
         <span class="daycard__chevron">+</span>
       </summary>
@@ -239,18 +272,22 @@
     <h2 class="reveal reveal-delay-1" style="margin-bottom:2rem;">Praktisches für unterwegs</h2>
     <div class="practical-grid" style="margin-bottom:3.5rem;">
       <div class="practical reveal">
+        <span class="practical-icon"><svg viewBox="0 0 24 24"><path d="M3 15l1.5 3a2 2 0 0 0 2 1.2h11a2 2 0 0 0 2-1.2L21 15H3z"/><path d="M6 15l1-7h10l1 7M7 15h1M16 15h1"/></svg></span>
         <h3>Mietwagen</h3>
         <p>Übernahme 21:00 Uhr Flughafen Olbia, Rückgabe 07:15 Uhr Flughafen Cagliari. Kaution EUR 300.– per Kreditkarte — EC-/Debitkarten werden nicht akzeptiert. Tankregelung Voll/Voll.</p>
       </div>
       <div class="practical reveal reveal-delay-1">
+        <span class="practical-icon"><svg viewBox="0 0 24 24"><path d="M2 12l19-8-6 19-3-7-7-3z"/><path d="M11 13l3 7"/></svg></span>
         <h3>Flüge</h3>
         <p>Hinflug ZRH 19:05 → OLB 20:35. Rückflug CAG 10:00 → ZRH 11:45. Online-Check-in ab 23 Std. vorher auf flyedelweiss.com.</p>
       </div>
       <div class="practical reveal reveal-delay-2">
+        <span class="practical-icon"><svg viewBox="0 0 24 24"><path d="M4 8V6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2M3 8h18l-1 12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1L3 8z"/><path d="M9 5V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1"/></svg></span>
         <h3>Gepäck</h3>
         <p>1× Freigepäck max. 23 kg pro Person + 1× Handgepäck max. 8 kg (55×40×20 cm). Gepäckabgabe bis 60 Min. vor Abflug.</p>
       </div>
       <div class="practical reveal reveal-delay-3">
+        <span class="practical-icon"><svg viewBox="0 0 24 24"><path d="M6 8V6a6 6 0 0 1 12 0v2"/><rect x="4" y="8" width="16" height="13" rx="2"/><path d="M9 12h6M9 16h6"/></svg></span>
         <h3>Tagesrucksack</h3>
         <p>Pässe/ID, Portemonnaie, Handy + Powerbank, Sonnencreme, Badesachen & Handtuch, Wasserflasche, Kamera, Kopfbedeckung, Badeschuhe.</p>
       </div>

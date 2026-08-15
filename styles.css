@@ -16,6 +16,9 @@
   --gold:       #e7a64b;
   --teal:       #59b3ad;
   --coral:      #ff7a5c;
+  --sage:       #7fa06f;
+  --sky:        #5b93b8;
+  --plum:       #9376ab;
 
   --f-display:  'Fraunces', serif;
   --f-body:     'Inter', sans-serif;
@@ -347,8 +350,10 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 
 /* ---------- Tagesplan-Akkordeon ---------- */
 .daycard{
+  --accent: var(--gold);
   border:1px solid rgba(244,237,224,.14);border-radius:10px;overflow:hidden;
   margin-bottom:1rem;background:var(--ink-2);
+  border-top:3px solid var(--accent);
 }
 .daycard summary{
   list-style:none;cursor:pointer;padding:1.3rem 1.6rem;
@@ -357,16 +362,24 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 }
 .daycard summary::-webkit-details-marker{display:none;}
 .daycard summary:hover{background:var(--ink-3);}
+.day-icon{
+  width:38px;height:38px;flex-shrink:0;border-radius:50%;
+  background:color-mix(in srgb, var(--accent) 18%, transparent);
+  display:flex;align-items:center;justify-content:center;
+}
+.day-icon svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 .daycard__no{
-  font-family:var(--f-label);font-size:.75rem;color:var(--gold);
-  border:1px solid var(--gold);border-radius:100px;padding:.3em .8em;flex-shrink:0;
+  font-family:var(--f-label);font-size:.75rem;color:var(--accent);
+  border:1px solid var(--accent);border-radius:100px;padding:.3em .8em;flex-shrink:0;
 }
 .daycard__title{flex:1;min-width:200px;}
 .daycard__title h3{margin:0;font-size:1.15rem;}
 .daycard__route{font-family:var(--f-label);font-size:.72rem;color:var(--sand-dim);letter-spacing:.04em;}
-.daycard__chevron{font-family:var(--f-label);color:var(--gold);transition:transform .3s var(--ease);}
+.daycard__chevron{font-family:var(--f-label);color:var(--accent);transition:transform .3s var(--ease);}
 .daycard[open] .daycard__chevron{transform:rotate(45deg);}
 .daycard__body{padding:0 1.6rem 1.8rem;}
+.timeline li::before{background:var(--accent);}
+.timeline time{color:var(--accent);}
 
 .timeline{list-style:none;margin:0 0 1.4rem;padding:0;border-left:1px solid rgba(244,237,224,.15);}
 .timeline li{position:relative;padding:0 0 1.1rem 1.4rem;}
@@ -390,8 +403,15 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 .practical-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
 @media(max-width:700px){.practical-grid{grid-template-columns:1fr;}}
 .practical{border:1px solid rgba(244,237,224,.12);border-radius:8px;padding:1.3rem 1.4rem;background:var(--ink-2);}
+.practical-icon{width:34px;height:34px;border-radius:50%;background:rgba(231,166,75,.15);display:flex;align-items:center;justify-content:center;margin-bottom:.8rem;}
+.practical-icon svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
 .practical h3{font-size:1rem;margin-bottom:.5em;color:var(--gold);font-family:var(--f-label);letter-spacing:.03em;text-transform:uppercase;font-weight:400;}
 .practical p{font-size:.88rem;margin:0;}
+
+/* ---------- Routen-Grafik ---------- */
+.route-graphic{position:relative;margin-bottom:1.5rem;}
+.route-graphic svg{width:100%;height:auto;display:block;}
+.route-graphic .stations{position:relative;z-index:1;margin-top:-1px;}
 
 .rules-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
 @media(max-width:900px){.rules-grid{grid-template-columns:repeat(2,1fr);}}
