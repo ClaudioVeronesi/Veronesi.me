@@ -446,12 +446,14 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 @media(max-width:700px){.year-grid{grid-template-columns:repeat(2,1fr);}}
 .year-grid .img-frame{aspect-ratio:1;border-radius:6px;}
 
-/* ---------- Journey-Timeline (Linie + Punkte) ---------- */
+/* ---------- Journey-Timeline (Wellen-Linie + Punkte) ---------- */
 .journey{position:relative;margin-bottom:1.5rem;}
 .journey::before{
-  content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;
-  background:linear-gradient(180deg, rgba(244,237,224,.25), rgba(244,237,224,.08));
-  transform:translateX(-50%);z-index:0;
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:40px;
+  transform:translateX(-50%);z-index:0;opacity:.8;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='60'%3E%3Cpath d='M20 0 C34 15 6 15 20 30 C34 45 6 45 20 60' stroke='rgba(231,166,75,0.4)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:repeat-y;background-size:40px 60px;background-position:center top;
+  animation:wave-flow 3.5s linear infinite;
 }
 .journey-item{
   position:relative;display:grid;grid-template-columns:1fr 44px 1fr;
@@ -460,8 +462,11 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 .journey-dot{
   grid-column:2;justify-self:center;margin-top:1.55rem;position:relative;z-index:1;
   width:15px;height:15px;border-radius:50%;background:var(--accent);
-  border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent);
+  border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent), 0 0 12px 1px var(--accent);
+  animation:dot-pulse 2.6s ease-in-out infinite;
 }
+@keyframes wave-flow{from{background-position-y:0;}to{background-position-y:60px;}}
+@keyframes dot-pulse{0%,100%{box-shadow:0 0 0 1px var(--accent), 0 0 8px 0 var(--accent);}50%{box-shadow:0 0 0 1px var(--accent), 0 0 16px 3px var(--accent);}}
 .journey-item .daycard{grid-column:1;margin-bottom:0;}
 .journey-item:nth-child(even) .daycard{grid-column:3;}
 
@@ -478,4 +483,6 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
   .reveal{opacity:1;transform:none;transition:none;}
   .hero__bg{transform:none;}
   .banner{background-attachment:scroll;}
+  .journey::before{animation:none;}
+  .journey-dot{animation:none;}
 }
