@@ -107,6 +107,64 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.mat
   });
 }
 
+// ---------- Journey-Linie: live durch Punktmitten zeichnen, Farbverlauf aus Punktfarben ----------
+function drawJourneyLines() {
+  document.querySelectorAll('.journey').forEach(journey => {
+    let svg = journey.querySelector('.journey-svg');
+    if (!svg) {
+      svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('class', 'journey-svg');
+      svg.setAttribute('aria-hidden', 'true');
+      journey.insertBefore(svg, journey.firstChild);
+    }
+    const dots = journey.querySelectorAll('.journey-dot');
+    if (dots.length < 2) { svg.innerHTML = ''; return; }
+
+    const rect = journey.getBoundingClientRect();
+    const pts = Array.from(dots).map(dot => {
+      const r = dot.getBoundingClientRect();
+      return {
+        x: r.left + r.width / 2 - rect.left,
+        y: r.top + r.height / 2 - rect.top,
+        color: getComputedStyle(dot).backgroundColor
+      };
+    });
+
+    svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
+
+    let d = `M ${pts[0].x} ${pts[0].y}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const p0 = pts[i], p1 = pts[i + 1];
+      const midY = (p0.y + p1.y) / 2;
+      d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+    }
+
+    const gradId = 'jgrad-' + Math.random().toString(36).slice(2, 9);
+    const y0 = pts[0].y, y1 = pts[pts.length - 1].y;
+    const stops = pts.map(p => {
+      const off = ((p.y - y0) / (y1 - y0 || 1) * 100).toFixed(1);
+      return `<stop offset="${off}%" stop-color="${p.color}"/>`;
+    }).join('');
+
+    svg.innerHTML = `<defs><linearGradient id="${gradId}" gradientUnits="userSpaceOnUse" x1="0" y1="${y0}" x2="0" y2="${y1}">${stops}</linearGradient></defs>
+      <path d="${d}" stroke="url(#${gradId})" stroke-width="6" stroke-linecap="round" fill="none"/>`;
+  });
+}
+
+window.addEventListener('load', drawJourneyLines);
+document.addEventListener('DOMContentLoaded', () => {
+  drawJourneyLines();
+  setTimeout(drawJourneyLines, 350); // nach Web-Font-Swap neu berechnen
+});
+let journeyResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(journeyResizeTimer);
+  journeyResizeTimer = setTimeout(drawJourneyLines, 150);
+});
+document.querySelectorAll('.daycard').forEach(card => {
+  card.addEventListener('toggle', () => requestAnimationFrame(drawJourneyLines));
+});
+
 // ---------- Gallery lightbox ----------
 const lightbox = document.querySelector('.lightbox');
 if (lightbox) {
