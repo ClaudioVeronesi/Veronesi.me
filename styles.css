@@ -446,6 +446,33 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
 @media(max-width:700px){.year-grid{grid-template-columns:repeat(2,1fr);}}
 .year-grid .img-frame{aspect-ratio:1;border-radius:6px;}
 
+/* ---------- Journey-Timeline (Linie + Punkte) ---------- */
+.journey{position:relative;margin-bottom:1.5rem;}
+.journey::before{
+  content:'';position:absolute;left:50%;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg, rgba(244,237,224,.25), rgba(244,237,224,.08));
+  transform:translateX(-50%);z-index:0;
+}
+.journey-item{
+  position:relative;display:grid;grid-template-columns:1fr 44px 1fr;
+  align-items:start;gap:0 1.2rem;margin-bottom:1.2rem;
+}
+.journey-dot{
+  grid-column:2;justify-self:center;margin-top:1.55rem;position:relative;z-index:1;
+  width:15px;height:15px;border-radius:50%;background:var(--accent);
+  border:3px solid var(--ink);box-shadow:0 0 0 1px var(--accent);
+}
+.journey-item .daycard{grid-column:1;margin-bottom:0;}
+.journey-item:nth-child(even) .daycard{grid-column:3;}
+
+@media(max-width:820px){
+  .journey::before{left:17px;}
+  .journey-item{grid-template-columns:34px 1fr;gap:0 1rem;}
+  .journey-item .daycard,
+  .journey-item:nth-child(even) .daycard{grid-column:2;}
+  .journey-dot{grid-column:1;justify-self:start;}
+}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;transition:none;}
