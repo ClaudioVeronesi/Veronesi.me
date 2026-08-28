@@ -474,6 +474,16 @@ body{opacity:0;animation:page-in .6s var(--ease) .05s forwards;}
   .journey-item:nth-child(even) .journey-dot{grid-column:1;justify-self:start;}
 }
 
+/* ---------- Reisetagebuch-Fotos (Platzhalter) ---------- */
+.diary-photos{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1.2rem 0;}
+.diary-photos .img-frame{aspect-ratio:4/3;}
+.placeholder-badge{
+  position:absolute;top:.6rem;right:.6rem;z-index:2;
+  font-family:var(--f-label);font-size:.62rem;letter-spacing:.05em;text-transform:uppercase;
+  background:rgba(14,31,39,.75);color:var(--gold);border:1px solid var(--gold);
+  padding:.25em .6em;border-radius:100px;
+}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
   .reveal{opacity:1;transform:none;transition:none;}
