@@ -165,14 +165,16 @@ document.querySelectorAll('.daycard').forEach(card => {
   card.addEventListener('toggle', () => requestAnimationFrame(drawJourneyLines));
 });
 
-// ---------- Gallery lightbox ----------
+// ---------- Lightbox (Galerie & Chronik) ----------
 const lightbox = document.querySelector('.lightbox');
 if (lightbox) {
   const lbImg = lightbox.querySelector('img');
   const lbClose = lightbox.querySelector('.lightbox__close');
-  document.querySelectorAll('.masonry figure[data-full] img').forEach(img => {
+  document.querySelectorAll('.masonry figure[data-full] img, .diary-photos img[data-full]').forEach(img => {
     img.addEventListener('click', () => {
-      lbImg.src = img.closest('figure').dataset.full;
+      const full = img.dataset.full || img.closest('[data-full]')?.dataset.full;
+      if (!full) return;
+      lbImg.src = full;
       lbImg.alt = img.alt;
       lightbox.classList.add('open');
     });
